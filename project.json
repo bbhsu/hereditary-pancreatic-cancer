@@ -1,0 +1,24 @@
+{
+  "name": "Hereditary Pancreatic Cancer",
+  "description": "",
+  "git_url": "https://github.com/bbhsu/hereditary-pancreatic-cancer",
+  "version": "1.0.0",
+  "keywords": [
+    "cancer"
+  ],
+  "downloads": {
+    "data": [
+      "https://s3-us-west-1.amazonaws.com/guardiome.omics.data/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz",
+      "https://s3-us-west-1.amazonaws.com/guardiome.omics.data/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz.fai",
+      "https://s3-us-west-1.amazonaws.com/guardiome.omics.data/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz.gzi"
+    ]
+  },
+  "commands": {
+    "app": "python code/run_omics_app.py"
+  },
+  "environment_history": [
+    "conda install --prefix PROJECT_ENVIRONMENT_DIRECTORY_PATH --channel conda-forge --yes --quiet pandas",
+    "conda install --prefix PROJECT_ENVIRONMENT_DIRECTORY_PATH --channel bioconda --yes --quiet samtools",
+    "pip install --quiet pytabix genotype_to_phenotype"
+  ]
+}
