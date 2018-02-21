@@ -2,7 +2,7 @@
   "name": "Hereditary Pancreatic Cancer",
   "description": "",
   "git_url": "https://github.com/KwatME/hereditary-pancreatic-cancer",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "keywords": [
     "Cancer",
     "Pancreatic Cancer"
@@ -20,6 +20,7 @@
   "environment_history": [
     "conda install --prefix PROJECT_ENVIRONMENT_DIRECTORY_PATH --channel conda-forge --yes --quiet pandas",
     "conda install --prefix PROJECT_ENVIRONMENT_DIRECTORY_PATH --channel bioconda --yes --quiet samtools",
-    "pip install --quiet pytabix genotype_to_phenotype"
+    "conda install --prefix PROJECT_ENVIRONMENT_DIRECTORY_PATH --channel makman09 --yes --quiet pytabix",
+    "pip install --quiet genotype_to_phenotype"
   ]
 }
