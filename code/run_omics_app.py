@@ -5,6 +5,7 @@ from warnings import warn
 from genotype_to_phenotype.access_g2p import read_g2p, write_g2p
 
 from tabix import open as tabix_open
+from tabix import TabixError
 
 PROJECT_DIRECTORY_PATH = dirname(dirname(abspath(__file__)))
 
@@ -63,9 +64,15 @@ def run_simple_omics_app():
                     'REGION should be writted as <chromosome>:<start_position>-<end_position> or <chromosome>:<start_positioln>-<start_position> (input.g2p row {}).'.
                     format(i))
 
-            variants = tuple(
-                pytabix_handle.query(chromosome, start_position - 1,
-                                     end_position))
+            try:
+                variants = tuple(
+                    pytabix_handle.query(chromosome, start_position - 1,
+                                         end_position))
+            except TabixError as exception:
+                warn('Query {}:{}-{} failed; skipping ...'.format(
+                    chromosome, start_position - 1, end_position))
+                matches.append(False)
+                continue
 
             if type_ == 'variant':
                 if len(variants):
